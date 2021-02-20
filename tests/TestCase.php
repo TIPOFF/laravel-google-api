@@ -5,9 +5,9 @@ declare(strict_types=1);
 namespace Tipoff\LaravelGoogleApi\Tests;
 
 use Laravel\Nova\NovaCoreServiceProvider;
-use Tipoff\Locations\LocationsServiceProvider;
 use Tipoff\LaravelGoogleApi\LaravelGoogleApiServiceProvider;
 use Tipoff\LaravelGoogleApi\Tests\Support\Providers\NovaTestbenchServiceProvider;
+use Tipoff\Locations\LocationsServiceProvider;
 use Tipoff\Support\SupportServiceProvider;
 use Tipoff\TestSupport\BaseTestCase;
 
