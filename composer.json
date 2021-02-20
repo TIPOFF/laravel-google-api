@@ -1,0 +1,62 @@
+{
+    "name": "tipoff/laravel-google-api",
+    "description": "Laravel Package for tracking Google laravel-google-api",
+    "keywords": [
+        "tipoff",
+        "laravel-google-api"
+    ],
+    "homepage": "https://github.com/tipoff/laravel-google-api",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Tipoff",
+            "email": "packages@tipoff.com",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": "^7.4|^8.0",
+        "google/apiclient": "^2.7",
+        "tipoff/authorization": "^1.0.1",
+        "tipoff/locations": "^2.0",
+        "tipoff/support": "^1.4.0"
+    },
+    "require-dev": {
+        "tipoff/test-support": "^1.0.5"
+    },
+    "autoload": {
+        "psr-4": {
+            "Tipoff\\LaravelGoogleApi\\": "src",
+            "Tipoff\\LaravelGoogleApi\\Database\\Factories\\": "database/factories",
+            "Tipoff\\LaravelGoogleApi\\Database\\Seeders\\": "database/seeders"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tipoff\\LaravelGoogleApi\\Tests\\": "tests"
+        }
+    },
+    "scripts": {
+        "psalm": "vendor/bin/psalm",
+        "test": "vendor/bin/phpunit --colors=always",
+        "test-coverage": "vendor/bin/phpunit --coverage-html coverage"
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Tipoff\\LaravelGoogleApi\\LaravelGoogleApiServiceProvider"
+            ]
+        }
+    },
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "https://nova.laravel.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
