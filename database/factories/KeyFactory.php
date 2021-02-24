@@ -24,7 +24,8 @@ class KeyFactory extends Factory
     public function definition()
     {
         return [
-            'slug' => $this->faker->slug
+            'slug' => $this->faker->unique()->slug,
+            'value' => $this->faker->word,
         ];
     }
 }
