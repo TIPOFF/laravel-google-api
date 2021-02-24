@@ -24,13 +24,13 @@ class GoogleApiServiceProvider extends TipoffServiceProvider
     {
         parent::register();
 
-        $this->app->bind(Google_Client::class, function($app) {
+        $this->app->bind(Google_Client::class, function() {
             return new Google_Client();
         });
 
-        $this->app->bind(Google_Service_MyBusiness::class, function($app) {
+        $this->app->bind(Google_Service_MyBusiness::class, function() {
             $client = app()->make(Google_Client::class);
-            
+
             $client->setAuthConfig(config('google-api.my-business.client-secret'));
             $client->addScope(['https://www.googleapis.com/auth/business.manage']);
             $client->setAccessType('offline');
