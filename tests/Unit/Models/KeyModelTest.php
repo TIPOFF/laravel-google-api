@@ -16,8 +16,7 @@ class KeyModelTest extends TestCase
     public function create()
     {
         /** @var Key $key */
-        // $key = Key::factory()->create();
-        // $this->assertNotNull($key);
-        $this->assertTrue(true);
+        $key = Key::factory()->create();
+        $this->assertNotNull($key);
     }
 }
