@@ -50,7 +50,7 @@ $gmbClient = app()->make(\Google_Service_MyBusiness::class);
 
 // Use the client to act on the API.
 $gmblocations = $gmbClient->accounts_locations
-    ->get('accounts/{location-id}/locations')
+    ->get('accounts/{account-id}/locations')
     ->toSimpleObject()
     ->locations;
 ```
