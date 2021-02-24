@@ -14,13 +14,6 @@ You can install the package via composer:
 composer require tipoff/laravel-google-api
 ```
 
-You can publish and run the migrations with:
-
-```bash
-php artisan vendor:publish --provider="Tipoff\GoogleApi\GoogleApiServiceProvider" --tag="google-api-migrations"
-php artisan migrate
-```
-
 You can publish the config file with:
 ```bash
 php artisan vendor:publish --provider="Tipoff\GoogleApi\GoogleApiServiceProvider" --tag="google-api-config"
