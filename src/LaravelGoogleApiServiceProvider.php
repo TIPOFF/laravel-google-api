@@ -14,6 +14,6 @@ class LaravelGoogleApiServiceProvider extends TipoffServiceProvider
         $package
             ->name('laravel-google-api')
             ->hasViews()
-            ->hasConfigFile();
+            ->hasConfigFile('google-api');
     }
 }
