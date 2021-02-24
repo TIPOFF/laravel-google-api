@@ -38,6 +38,10 @@ GOOGLE_MYBUSINESS_JAVASCRIPT_ORIGINS=
 
 You can use the `|` character to separate multiple strings in the `GOOGLE_MYBUSINESS_REDIRECT_URIS` and `GOOGLE_MYBUSINESS_JAVASCRIPT_ORIGINS` settings.
 
+Obtain an API access token for Google My Business and insert it into the `keys` table, giving it an identifying slug for the next step. (Make sure that the `value` field contains your token formatted as valid JSON.)
+
+Set the value of `ACCESS_TOKEN_SLUG` in your `.env` file to the name of the slug in your `keys` table entry.
+
 ## Usage
 
 ```

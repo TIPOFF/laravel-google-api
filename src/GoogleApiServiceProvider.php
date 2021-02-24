@@ -35,7 +35,7 @@ class GoogleApiServiceProvider extends TipoffServiceProvider
             $client->addScope(['https://www.googleapis.com/auth/business.manage']);
             $client->setAccessType('offline');
 
-            $token = json_decode(Key::where('slug', 'gmb-token')->first()->value, true);
+            $token = json_decode(Key::where('slug', config('google-api.my-business.access-token-slug'))->first()->value, true);
             $client->setAccessToken($token);
 
             if ($client->isAccessTokenExpired()) {
@@ -43,7 +43,7 @@ class GoogleApiServiceProvider extends TipoffServiceProvider
                 $token = $client->fetchAccessTokenWithRefreshToken($client->getRefreshToken());
 
                 Key::updateOrCreate(
-                    ['slug' => 'gmb-token'],
+                    ['slug' => config('google-api.my-business.access-token-slug')],
                     ['value' => json_encode($token)]
                 );
             }

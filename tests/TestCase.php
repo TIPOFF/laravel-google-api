@@ -20,7 +20,7 @@ class TestCase extends BaseTestCase
             $dotenv->load();
 
             Key::updateOrCreate(
-                ['slug' => 'gmb-token'],
+                ['slug' => config('google-api.my-business.access-token-slug')],
                 ['value' => env('ACCESS_TOKEN_VALUE')]
             );
         }
