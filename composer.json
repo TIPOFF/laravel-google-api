@@ -1,9 +1,10 @@
 {
     "name": "tipoff/laravel-google-api",
-    "description": "Laravel Package for tracking Google laravel-google-api",
+    "description": "Laravel package for interacting with Google APIs.",
     "keywords": [
         "tipoff",
-        "laravel-google-api"
+        "laravel-google-api",
+        "laravel"
     ],
     "homepage": "https://github.com/tipoff/laravel-google-api",
     "license": "MIT",
@@ -18,7 +19,6 @@
         "php": "^7.4|^8.0",
         "google/apiclient": "^2.7",
         "tipoff/authorization": "^1.0.1",
-        "tipoff/locations": "^2.0",
         "tipoff/support": "^1.4.0"
     },
     "require-dev": {
@@ -26,14 +26,17 @@
     },
     "autoload": {
         "psr-4": {
-            "Tipoff\\LaravelGoogleApi\\": "src",
-            "Tipoff\\LaravelGoogleApi\\Database\\Factories\\": "database/factories",
-            "Tipoff\\LaravelGoogleApi\\Database\\Seeders\\": "database/seeders"
-        }
+            "Tipoff\\GoogleApi\\": "src",
+            "Tipoff\\GoogleApi\\Database\\Factories\\": "database/factories",
+            "Tipoff\\GoogleApi\\Database\\Seeders\\": "database/seeders"
+        },
+        "files": [
+            "src/Helpers/GoogleMyBusiness.php"
+        ]
     },
     "autoload-dev": {
         "psr-4": {
-            "Tipoff\\LaravelGoogleApi\\Tests\\": "tests"
+            "Tipoff\\GoogleApi\\Tests\\": "tests"
         }
     },
     "scripts": {
@@ -47,8 +50,11 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Tipoff\\LaravelGoogleApi\\LaravelGoogleApiServiceProvider"
-            ]
+                "Tipoff\\GoogleApi\\GoogleApiServiceProvider"
+            ],
+            "aliases": {
+                "GoogleMyBusiness": "Tipoff\\GoogleAPI\\Facades\\GoogleMyBusinessFacade"
+            }
         }
     },
     "repositories": [

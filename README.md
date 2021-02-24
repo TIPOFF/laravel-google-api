@@ -17,13 +17,13 @@ composer require tipoff/laravel-google-api
 You can publish and run the migrations with:
 
 ```bash
-php artisan vendor:publish --provider="Tipoff\LaravelGoogleApi\LaravelGoogleApiServiceProvider" --tag="laravel-google-api-migrations"
+php artisan vendor:publish --provider="Tipoff\GoogleApi\GoogleApiServiceProvider" --tag="laravel-google-api-migrations"
 php artisan migrate
 ```
 
 You can publish the config file with:
 ```bash
-php artisan vendor:publish --provider="Tipoff\LaravelGoogleApi\LaravelGoogleApiServiceProvider" --tag="laravel-google-api-config"
+php artisan vendor:publish --provider="Tipoff\GoogleApi\GoogleApiServiceProvider" --tag="laravel-google-api-config"
 ```
 
 This is the contents of the published config file:

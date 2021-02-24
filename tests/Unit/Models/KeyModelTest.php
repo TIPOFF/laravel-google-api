@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace Tipoff\LaravelGoogleApi\Tests\Unit\Models;
+namespace Tipoff\GoogleApi\Tests\Unit\Models;
 
 use Illuminate\Foundation\Testing\DatabaseTransactions;
-use Tipoff\LaravelGoogleApi\Models\Key;
-use Tipoff\LaravelGoogleApi\Tests\TestCase;
+use Tipoff\GoogleApi\Models\Key;
+use Tipoff\GoogleApi\Tests\TestCase;
 
 class KeyModelTest extends TestCase
 {

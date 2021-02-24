@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Tipoff\LaravelGoogleApi\Tests\Support\Models;
+namespace Tipoff\GoogleApi\Tests\Support\Models;
 
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Tipoff\Support\Models\TestModelStub;
