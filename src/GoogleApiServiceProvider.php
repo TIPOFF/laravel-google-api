@@ -4,11 +4,11 @@ declare(strict_types=1);
 
 namespace Tipoff\GoogleApi;
 
-use Tipoff\Support\TipoffPackage;
-use Tipoff\Support\TipoffServiceProvider;
 use Google_Client;
 use Google_Service_MyBusiness;
 use Tipoff\GoogleApi\Models\Key;
+use Tipoff\Support\TipoffPackage;
+use Tipoff\Support\TipoffServiceProvider;
 
 class GoogleApiServiceProvider extends TipoffServiceProvider
 {

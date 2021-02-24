@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace Tipoff\GoogleApi\Tests;
 
-use Tipoff\Support\SupportServiceProvider;
 use Tipoff\GoogleApi\GoogleApiServiceProvider;
 use Tipoff\GoogleApi\Models\Key;
+use Tipoff\Support\SupportServiceProvider;
 use Tipoff\TestSupport\BaseTestCase;
 
 class TestCase extends BaseTestCase
