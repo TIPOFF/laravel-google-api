@@ -26,11 +26,14 @@ You can publish the config file with:
 php artisan vendor:publish --provider="Tipoff\GoogleApi\GoogleApiServiceProvider" --tag="laravel-google-api-config"
 ```
 
-This is the contents of the published config file:
-
-```php
-return [
-];
+Add the following variables to your `.env` file and set them based on the contents of the
+`client_secret.json` file you obtained from Google.
+```
+GOOGLE_MYBUSINESS_CLIENT_ID
+GOOGLE_MYBUSINESS_PROJECT_ID
+GOOGLE_MYBUSINESS_CLIENT_SECRET
+GOOGLE_MYBUSINESS_REDIRECT_URIS
+GOOGLE_MYBUSINESS_JAVASCRIPT_ORIGINS
 ```
 
 ## Models
