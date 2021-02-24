@@ -14,32 +14,39 @@ You can install the package via composer:
 composer require tipoff/laravel-google-api
 ```
 
-You can publish and run the migrations with:
-
-```bash
-php artisan vendor:publish --provider="Tipoff\LaravelGoogleApi\LaravelGoogleApiServiceProvider" --tag="laravel-google-api-migrations"
-php artisan migrate
-```
-
 You can publish the config file with:
 ```bash
-php artisan vendor:publish --provider="Tipoff\LaravelGoogleApi\LaravelGoogleApiServiceProvider" --tag="laravel-google-api-config"
+php artisan vendor:publish --provider="Tipoff\GoogleApi\GoogleApiServiceProvider" --tag="google-api-config"
 ```
 
-This is the contents of the published config file:
-
-```php
-return [
-];
+Add the following variables to your `.env` file and set them based on the contents of the
+`client_secret.json` file you obtained from Google.
+```
+GOOGLE_MYBUSINESS_CLIENT_ID=
+GOOGLE_MYBUSINESS_PROJECT_ID=
+GOOGLE_MYBUSINESS_CLIENT_SECRET=
+GOOGLE_MYBUSINESS_REDIRECT_URIS=
+GOOGLE_MYBUSINESS_JAVASCRIPT_ORIGINS=
 ```
 
-## Models
+You can use the `|` character to separate multiple strings in the `GOOGLE_MYBUSINESS_REDIRECT_URIS` and `GOOGLE_MYBUSINESS_JAVASCRIPT_ORIGINS` settings.
 
-We include the following model in this package:
+Obtain an API access token for Google My Business and insert it into the `keys` table, giving it an identifying slug for the next step. (Make sure that the `value` field contains your token formatted as valid JSON.)
 
-**List of Models**
+Set the value of `ACCESS_TOKEN_SLUG` in your `.env` file to the name of the slug in your `keys` table entry.
 
-- Key
+## Usage
+
+```
+// Instantiate the Google My Business Client.
+$gmbClient = app()->make(\Google_Service_MyBusiness::class);
+
+// Use the client to act on the API.
+$gmblocations = $gmbClient->accounts_locations
+    ->get('accounts/{account-id}/locations')
+    ->toSimpleObject()
+    ->locations;
+```
 
 ## Testing
 

@@ -2,25 +2,35 @@
 
 declare(strict_types=1);
 
-namespace Tipoff\LaravelGoogleApi\Tests;
+namespace Tipoff\GoogleApi\Tests;
 
-use Laravel\Nova\NovaCoreServiceProvider;
-use Tipoff\LaravelGoogleApi\LaravelGoogleApiServiceProvider;
-use Tipoff\LaravelGoogleApi\Tests\Support\Providers\NovaTestbenchServiceProvider;
-use Tipoff\Locations\LocationsServiceProvider;
+use Tipoff\GoogleApi\GoogleApiServiceProvider;
+use Tipoff\GoogleApi\Models\Key;
 use Tipoff\Support\SupportServiceProvider;
 use Tipoff\TestSupport\BaseTestCase;
 
 class TestCase extends BaseTestCase
 {
+    public function setUp(): void
+    {
+        parent::setUp();
+
+        if (file_exists(dirname(__DIR__) . '/.env')) {
+            $dotenv = \Dotenv\Dotenv::createImmutable(__DIR__.'/../');
+            $dotenv->load();
+
+            Key::updateOrCreate(
+                ['slug' => config('google-api.my-business.access-token-slug')],
+                ['value' => env('ACCESS_TOKEN_VALUE')]
+            );
+        }
+    }
+
     protected function getPackageProviders($app)
     {
         return [
-            NovaCoreServiceProvider::class,
-            NovaTestbenchServiceProvider::class,
-            LaravelGoogleApiServiceProvider::class,
+            GoogleApiServiceProvider::class,
             SupportServiceProvider::class,
-            LocationsServiceProvider::class,
         ];
     }
 }

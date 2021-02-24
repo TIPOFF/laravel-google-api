@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Tipoff\LaravelGoogleApi\Database\Factories;
+namespace Tipoff\GoogleApi\Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
-use Tipoff\LaravelGoogleApi\Models\Key;
+use Tipoff\GoogleApi\Models\Key;
 
 class KeyFactory extends Factory
 {
