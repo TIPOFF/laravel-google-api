@@ -11,6 +11,6 @@ class GoogleMyBusinessFacade extends Facade
 {
     protected static function getFacadeAccessor()
     {
-        return 'google-my-business-client';
+        return 'google-my-business';
     }
 }

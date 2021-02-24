@@ -6,6 +6,8 @@ namespace Tipoff\GoogleApi;
 
 use Tipoff\Support\TipoffPackage;
 use Tipoff\Support\TipoffServiceProvider;
+use Google_Client;
+use Google_Service_MyBusiness;
 
 class GoogleApiServiceProvider extends TipoffServiceProvider
 {
@@ -15,5 +17,14 @@ class GoogleApiServiceProvider extends TipoffServiceProvider
             ->name('google-api')
             ->hasViews()
             ->hasConfigFile('google-api');
+    }
+    
+    public function register()
+    {
+        parent::register();
+
+        $this->app->bind('google-my-business', function($app) {
+            return new Google_Service_MyBusiness($app->make(Google_Client::class));
+        });
     }
 }
