@@ -51,10 +51,7 @@
         "laravel": {
             "providers": [
                 "Tipoff\\GoogleApi\\GoogleApiServiceProvider"
-            ],
-            "aliases": {
-                "GoogleMyBusiness": "Tipoff\\GoogleAPI\\Facades\\GoogleMyBusinessFacade"
-            }
+            ]
         }
     },
     "repositories": [
