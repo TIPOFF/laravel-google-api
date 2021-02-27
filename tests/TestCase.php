@@ -21,7 +21,7 @@ class TestCase extends BaseTestCase
 
             Key::updateOrCreate(
                 ['slug' => config('google-api.my-business.access-token-slug')],
-                ['value' => env('ACCESS_TOKEN_VALUE')]
+                ['value' => env('GOOGLE_MYBUSINESS_ACCESS_TOKEN_SLUG')]
             );
         }
     }
