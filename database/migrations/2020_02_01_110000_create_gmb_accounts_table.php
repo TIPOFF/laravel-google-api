@@ -13,6 +13,7 @@ class CreateGmbAccountsTable extends Migration
         Schema::create('gmb_accounts', function (Blueprint $table) {
             $table->id();
             $table->string('account_number');
+            $table->foreignIdFor(app('key'));
  
             $table->foreignIdFor(app('user'), 'creator_id');
             $table->foreignIdFor(app('user'), 'updater_id');
