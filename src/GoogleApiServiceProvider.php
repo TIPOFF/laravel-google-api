@@ -43,8 +43,9 @@ class GoogleApiServiceProvider extends TipoffServiceProvider
         });
     }
 
-    protected function configureClient(Google_Client $client, string $configKey) : Google_Client {
-        if (!config()->has("google-api.$configKey")) {
+    protected function configureClient(Google_Client $client, string $configKey) : Google_Client
+    {
+        if (! config()->has("google-api.$configKey")) {
             throw new Exception('Invalid Google service configuration specified.');
         }
 
