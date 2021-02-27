@@ -29,7 +29,8 @@ class GoogleServicesTest extends TestCase
     }
 
     /** @test */
-    public function it_builds_the_Google_My_Business_service() {
+    public function it_builds_the_Google_My_Business_service()
+    {
         $service = app()->make(Google_Service_MyBusiness::class);
 
         $this->assertInstanceOf(Google_Service_MyBusiness::class, $service);
