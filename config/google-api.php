@@ -12,7 +12,7 @@ return [
                 "client_secret" => env('GOOGLE_MYBUSINESS_CLIENT_SECRET') ?? env('GOOGLE_CLIENT_SECRET'),
                 "redirect_uris" => explode('|', env('GOOGLE_MYBUSINESS_REDIRECT_URIS') ?? env('GOOGLE_REDIRECT_URIS', '')),
                 "javascript_origins" => explode('|', env('GOOGLE_MYBUSINESS_JAVASCRIPT_ORIGINS') ?? env('GOOGLE_JAVASCRIPT_ORIGINS', '')),
-                "scopes" => explode('|', env('GOOGLE_MYBUSINESS_SCOPES') ?? env('GOOGLE_SCOPES', '')),
+                "scopes" => explode('|', env('GOOGLE_MYBUSINESS_SCOPES') ?? env('GOOGLE_SCOPES', 'https://www.googleapis.com/auth/business.manage')),
             ],
         ],
         'access-token-slug' => env('GOOGLE_MYBUSINESS_ACCESS_TOKEN_SLUG', env('GOOGLE_ACCESS_TOKEN_SLUG', 'gmb-token')),
