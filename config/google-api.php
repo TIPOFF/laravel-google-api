@@ -14,6 +14,6 @@ return [
                 "javascript_origins" => explode('|', env('GOOGLE_MYBUSINESS_JAVASCRIPT_ORIGINS') ?? env('GOOGLE_JAVASCRIPT_ORIGINS')),
             ],
         ],
-        'access-token-slug' => env('GOOGLE_MYBUSINESS_ACCESS_TOKEN_SLUG', 'gmb-token'),
+        'access-token-slug' => env('GOOGLE_MYBUSINESS_ACCESS_TOKEN_SLUG', env('GOOGLE_ACCESS_TOKEN_SLUG', 'gmb-token')),
     ],
 ];
