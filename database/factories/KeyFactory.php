@@ -16,6 +16,8 @@ class KeyFactory extends Factory
         return [
             'slug' => $this->faker->unique()->slug,
             'value' => $this->faker->word,
+            'creator_id'     => randomOrCreate(app('user')),
+            'updater_id'     => randomOrCreate(app('user')),
         ];
     }
 }
