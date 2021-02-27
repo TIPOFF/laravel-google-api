@@ -6,15 +6,15 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateKeysTable extends Migration
+class CreateGmbAccountsTable extends Migration
 {
     public function up()
     {
-        Schema::create('keys', function (Blueprint $table) {
+        Schema::create('gmb_accounts', function (Blueprint $table) {
             $table->id();
-            $table->string('slug')->unique()->index();
-            $table->text('value')->nullable();
-
+            $table->string('account_number');
+            $table->foreignIdFor(app('key'));
+ 
             $table->foreignIdFor(app('user'), 'creator_id');
             $table->foreignIdFor(app('user'), 'updater_id');
             $table->timestamps();

@@ -9,7 +9,7 @@ use Tipoff\Support\Traits\HasCreator;
 use Tipoff\Support\Traits\HasPackageFactory;
 use Tipoff\Support\Traits\HasUpdater;
 
-class Key extends BaseModel
+class GmbAccount extends BaseModel
 {
     use HasCreator;
     use HasUpdater;
@@ -17,8 +17,8 @@ class Key extends BaseModel
 
     protected $casts = [];
 
-    public function gmb_accounts()
+    public function key()
     {
-        return $this->hasMany(app('gmb_account'));
+        return $this->belongsTo(app('key'));
     }
 }
