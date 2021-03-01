@@ -29,10 +29,7 @@
             "Tipoff\\GoogleApi\\": "src",
             "Tipoff\\GoogleApi\\Database\\Factories\\": "database/factories",
             "Tipoff\\GoogleApi\\Database\\Seeders\\": "database/seeders"
-        },
-        "files": [
-            "src/Helpers/GoogleMyBusiness.php"
-        ]
+        }
     },
     "autoload-dev": {
         "psr-4": {
