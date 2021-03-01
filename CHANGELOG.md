@@ -13,3 +13,7 @@ All notable changes to `laravel-google-api` will be documented in this file.
 ## 1.1.0 - 2021-02-27
 
 - gmb accounts
+
+## 1.2.0 - 2021-03-01
+
+- classes for google my business functionality
