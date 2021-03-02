@@ -16,8 +16,7 @@ class GoogleApiServiceProvider extends TipoffServiceProvider
     {
         $package
             ->name('google-api')
-            ->hasConfigFile('google-api')
-            ->hasViews();
+            ->hasConfigFile('google-api');
     }
     
     public function register()
