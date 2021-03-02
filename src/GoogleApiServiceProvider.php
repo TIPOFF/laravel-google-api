@@ -18,7 +18,6 @@ class GoogleApiServiceProvider extends TipoffServiceProvider
     public function configureTipoffPackage(TipoffPackage $package): void
     {
         $package
-            ->name('google-api')
             ->hasPolicies([
                 Key::class => KeyPolicy::class,
                 GmbAccount::class => GmbAccountPolicy::class,
@@ -27,6 +26,7 @@ class GoogleApiServiceProvider extends TipoffServiceProvider
                 \Tipoff\GoogleApi\Nova\Key::class,
                 \Tipoff\GoogleApi\Nova\GmbAccount::class,
             ])
+            ->name('google-api')
             ->hasConfigFile('google-api')
             ->hasViews();
     }
