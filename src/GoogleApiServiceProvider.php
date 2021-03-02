@@ -7,6 +7,9 @@ namespace Tipoff\GoogleApi;
 use Google_Client;
 use Google_Service_MyBusiness;
 use Tipoff\GoogleApi\Models\Key;
+use Tipoff\GoogleApi\Models\GmbAccount;
+use Tipoff\GoogleApi\Policies\KeyPolicy;
+use Tipoff\GoogleApi\Policies\GmbAccountPolicy;
 use Tipoff\Support\TipoffPackage;
 use Tipoff\Support\TipoffServiceProvider;
 
@@ -16,6 +19,14 @@ class GoogleApiServiceProvider extends TipoffServiceProvider
     {
         $package
             ->name('google-api')
+            ->hasPolicies([
+                Key::class => KeyPolicy::class,
+                GmbAccount::class => GmbAccountPolicy::class,
+            ])
+            ->hasNovaResources([
+                \Tipoff\GoogleApi\Nova\Key::class,
+                \Tipoff\GoogleApi\Nova\GmbAccount::class,
+            ])
             ->hasConfigFile('google-api')
             ->hasViews();
     }
