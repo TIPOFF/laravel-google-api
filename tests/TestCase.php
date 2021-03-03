@@ -34,7 +34,7 @@ class TestCase extends BaseTestCase
             GoogleApiServiceProvider::class,
             SupportServiceProvider::class,
             AuthorizationServiceProvider::class,
-            PermissionServiceProvider::class
+            PermissionServiceProvider::class,
         ];
     }
 }
