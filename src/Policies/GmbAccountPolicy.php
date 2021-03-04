@@ -14,22 +14,22 @@ class GmbAccountPolicy
 
     public function viewAny(UserInterface $user): bool
     {
-        return $user->hasPermissionTo('view gmbAccounts') ? true : false;
+        return $user->hasPermissionTo('view gmb accounts') ? true : false;
     }
 
     public function view(UserInterface $user, GmbAccount $gmb_account): bool
     {
-        return $user->hasPermissionTo('view gmbAccounts') ? true : false;
+        return $user->hasPermissionTo('view gmb accounts') ? true : false;
     }
 
     public function create(UserInterface $user): bool
     {
-        return false;
+        return $user->hasPermissionTo('create gmb accounts') ? true : false;
     }
 
     public function update(UserInterface $user, GmbAccount $gmb_account): bool
     {
-        return $user->hasPermissionTo('view gmbAccounts') ? true : false;
+        return $user->hasPermissionTo('update gmb accounts') ? true : false;
     }
 
     public function delete(UserInterface $user, GmbAccount $gmb_account): bool
