@@ -29,7 +29,7 @@ class KeyPolicy
 
     public function update(UserInterface $user, Key $key): bool
     {
-        return $user->hasPermissionTo('view keys') ? true : false;
+        return false;
     }
 
     public function delete(UserInterface $user, Key $key): bool
