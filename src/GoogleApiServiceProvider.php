@@ -27,8 +27,7 @@ class GoogleApiServiceProvider extends TipoffServiceProvider
                 \Tipoff\GoogleApi\Nova\GmbAccount::class,
             ])
             ->name('google-api')
-            ->hasConfigFile('google-api')
-            ->hasViews();
+            ->hasConfigFile('google-api');
     }
     
     public function register()
