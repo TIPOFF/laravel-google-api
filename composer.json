@@ -19,7 +19,7 @@
         "php": "^7.4|^8.0",
         "google/apiclient": "^2.7",
         "tipoff/authorization": "^2.3.0",
-        "tipoff/support": "^1.5.4"
+        "tipoff/support": "^1.5.5"
     },
     "require-dev": {
         "tipoff/test-support": "^1.1.2"
