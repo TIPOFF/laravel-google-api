@@ -23,3 +23,9 @@ All notable changes to `laravel-google-api` will be documented in this file.
 - remove classes for gmb functionality
 - add policies
 - register policies
+
+## 1.3.0 - 2021-03-05
+
+- google analytics api
+- youtube analytics api
+- youtube data api
