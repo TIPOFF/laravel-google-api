@@ -22,18 +22,22 @@ php artisan vendor:publish --provider="Tipoff\GoogleApi\GoogleApiServiceProvider
 Add the following variables to your `.env` file and set them based on the contents of the
 `client_secret.json` file you obtained from Google.
 ```
-GOOGLE_MYBUSINESS_CLIENT_ID=
-GOOGLE_MYBUSINESS_PROJECT_ID=
-GOOGLE_MYBUSINESS_CLIENT_SECRET=
-GOOGLE_MYBUSINESS_REDIRECT_URIS=
-GOOGLE_MYBUSINESS_JAVASCRIPT_ORIGINS=
+GOOGLE_CLIENT_ID=
+GOOGLE_PROJECT_ID=
+GOOGLE_CLIENT_SECRET=
+GOOGLE_REDIRECT_URIS=
+GOOGLE_JAVASCRIPT_ORIGINS=
 ```
 
-You can use the `|` character to separate multiple strings in the `GOOGLE_MYBUSINESS_REDIRECT_URIS` and `GOOGLE_MYBUSINESS_JAVASCRIPT_ORIGINS` settings.
+You can use the `|` character to separate multiple strings in the `GOOGLE_REDIRECT_URIS` and `GOOGLE_JAVASCRIPT_ORIGINS` settings.
 
-Obtain an API access token for Google My Business and insert it into the `keys` table, giving it an identifying slug for the next step. (Make sure that the `value` field contains your token formatted as valid JSON.)
+Obtain an API access token from Google and insert it into the `keys` table, giving it an identifying slug for the next step. (Make sure that the `value` field contains your token formatted as valid JSON.)
 
-Set the value of `ACCESS_TOKEN_SLUG` in your `.env` file to the name of the slug in your `keys` table entry.
+Set the value of `GOOGLE_ACCESS_TOKEN_SLUG` in your `.env` file to the name of the slug in your `keys` table entry.
+
+**Note:** If you need to customize the client secret fields or access token value on a service-by-service basis, you may do so by setting values in your `.env` file for the service-specific values found in `config/google-api.php`. (For example, `YOUTUBE_CLIENT_ID`.)
+
+If you do not set service-specific values, it will default to the options set above for each service.
 
 ## Usage
 
