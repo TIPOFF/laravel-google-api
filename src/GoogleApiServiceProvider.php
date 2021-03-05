@@ -6,8 +6,10 @@ namespace Tipoff\GoogleApi;
 
 use Exception;
 use Google_Client;
+use Google_Service_Analytics;
 use Google_Service_MyBusiness;
 use Google_Service_YouTube;
+use Google_Service_YouTubeAnalytics;
 use Tipoff\GoogleApi\Models\GmbAccount;
 use Tipoff\GoogleApi\Models\Key;
 use Tipoff\GoogleApi\Policies\GmbAccountPolicy;
@@ -50,6 +52,18 @@ class GoogleApiServiceProvider extends TipoffServiceProvider
             $client = $this->configureClient(app()->make(Google_Client::class), 'youtube');
 
             return new Google_Service_YouTube($client);
+        });
+
+        $this->app->bind(Google_Service_YouTubeAnalytics::class, function () {
+            $client = $this->configureClient(app()->make(Google_Client::class), 'youtube-analytics');
+
+            return new Google_Service_YouTubeAnalytics($client);
+        });
+
+        $this->app->bind(Google_Service_Analytics::class, function () {
+            $client = $this->configureClient(app()->make(Google_Client::class), 'analytics');
+
+            return new Google_Service_Analytics($client);
         });
     }
 
