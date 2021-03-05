@@ -8,7 +8,10 @@ use Exception;
 use Google_Client;
 use Google_Service_MyBusiness;
 use Google_Service_YouTube;
+use Tipoff\GoogleApi\Models\GmbAccount;
 use Tipoff\GoogleApi\Models\Key;
+use Tipoff\GoogleApi\Policies\GmbAccountPolicy;
+use Tipoff\GoogleApi\Policies\KeyPolicy;
 use Tipoff\Support\TipoffPackage;
 use Tipoff\Support\TipoffServiceProvider;
 
@@ -17,9 +20,16 @@ class GoogleApiServiceProvider extends TipoffServiceProvider
     public function configureTipoffPackage(TipoffPackage $package): void
     {
         $package
+            ->hasPolicies([
+                Key::class => KeyPolicy::class,
+                GmbAccount::class => GmbAccountPolicy::class,
+            ])
+            ->hasNovaResources([
+                \Tipoff\GoogleApi\Nova\Key::class,
+                \Tipoff\GoogleApi\Nova\GmbAccount::class,
+            ])
             ->name('google-api')
-            ->hasConfigFile('google-api')
-            ->hasViews();
+            ->hasConfigFile('google-api');
     }
     
     public function register()

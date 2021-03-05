@@ -14,6 +14,9 @@ class CreateKeysTable extends Migration
             $table->id();
             $table->string('slug')->unique()->index();
             $table->text('value')->nullable();
+
+            $table->foreignIdFor(app('user'), 'creator_id');
+            $table->foreignIdFor(app('user'), 'updater_id');
             $table->timestamps();
         });
     }
