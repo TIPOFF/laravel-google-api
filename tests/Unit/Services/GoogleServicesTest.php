@@ -14,11 +14,13 @@ class GoogleServicesTest extends TestCase
 {
     use RefreshDatabase;
 
-    protected string $mockJsonToken = '';
+    protected string $fakeJsonToken;
 
     public function setUp(): void
     {
         parent::setUp();
+
+        $this->fakeJsonToken = '{"access_token":"mock-access-token","expires_in":3599,"scope":"https:\/\/www.googleapis.com\/auth\/business.manage","token_type":"Bearer","created":'.time().',"refresh_token":"mock-refresh-token"}';
 
         // Because of the order in which Testbench loads things, we don't
         // have access to our .env.test variables when the config is initially
@@ -50,7 +52,7 @@ class GoogleServicesTest extends TestCase
         Key::firstOrCreate(
             ['slug' => config("google-api.$serviceName.access-token-slug")],
             [
-                'value' => config('google-api.test.mock-json-token'),
+                'value' => $this->fakeJsonToken,
                 'creator_id' => randomOrCreate(app('user')),
                 'updater_id' => randomOrCreate(app('user')),
             ]
