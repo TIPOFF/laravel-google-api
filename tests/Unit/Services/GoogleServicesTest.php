@@ -14,6 +14,8 @@ class GoogleServicesTest extends TestCase
 {
     use RefreshDatabase;
 
+    protected string $mockJsonToken = '';
+
     public function setUp(): void
     {
         parent::setUp();
@@ -38,20 +40,27 @@ class GoogleServicesTest extends TestCase
         }
     }
 
-    /** @test */
-    public function it_builds_the_Google_My_Business_service()
+    /**
+     * If we don't have an actual key for our testing in the .env.test
+     * file, create a mock one here that the Google client will accept
+     * for creating the client.
+     */
+    protected function mockJsonToken(string $serviceName) : void
     {
-        // If we don't have an actual key for our testing in the .env.test
-        // file, create a mock one here that the Google client will accept
-        // for creating the client.
         Key::firstOrCreate(
-            ['slug' => config('google-api.my-business.access-token-slug')],
+            ['slug' => config("google-api.$serviceName.access-token-slug")],
             [
                 'value' => config('google-api.test.mock-json-token'),
                 'creator_id' => randomOrCreate(app('user')),
                 'updater_id' => randomOrCreate(app('user')),
             ]
         );
+    }
+
+    /** @test */
+    public function it_builds_the_Google_My_Business_service()
+    {
+        $this->mockJsonToken('my-business');
 
         $service = app()->make(Google_Service_MyBusiness::class);
 
@@ -61,17 +70,7 @@ class GoogleServicesTest extends TestCase
     /** @test */
     public function it_builds_the_Google_YouTube_service()
     {
-        // If we don't have an actual key for our testing in the .env.test
-        // file, create a mock one here that the Google client will accept
-        // for creating the client.
-        Key::firstOrCreate(
-            ['slug' => config('google-api.youtube.access-token-slug')],
-            [
-                'value' => config('google-api.test.mock-json-token'),
-                'creator_id' => randomOrCreate(app('user')),
-                'updater_id' => randomOrCreate(app('user')),
-            ]
-        );
+        $this->mockJsonToken('youtube');
 
         $service = app()->make(Google_Service_YouTube::class);
 
@@ -81,17 +80,7 @@ class GoogleServicesTest extends TestCase
     /** @test */
     public function it_builds_the_Google_YouTubeAnalytics_service()
     {
-        // If we don't have an actual key for our testing in the .env.test
-        // file, create a mock one here that the Google client will accept
-        // for creating the client.
-        Key::firstOrCreate(
-            ['slug' => config('google-api.youtube-analytics.access-token-slug')],
-            [
-                'value' => config('google-api.test.mock-json-token'),
-                'creator_id' => randomOrCreate(app('user')),
-                'updater_id' => randomOrCreate(app('user')),
-            ]
-        );
+        $this->mockJsonToken('youtube-analytics');
 
         $service = app()->make(Google_Service_YouTubeAnalytics::class);
 
@@ -101,17 +90,7 @@ class GoogleServicesTest extends TestCase
     /** @test */
     public function it_builds_the_Google_Analytics_service()
     {
-        // If we don't have an actual key for our testing in the .env.test
-        // file, create a mock one here that the Google client will accept
-        // for creating the client.
-        Key::firstOrCreate(
-            ['slug' => config('google-api.analytics.access-token-slug')],
-            [
-                'value' => config('google-api.test.mock-json-token'),
-                'creator_id' => randomOrCreate(app('user')),
-                'updater_id' => randomOrCreate(app('user')),
-            ]
-        );
+        $this->mockJsonToken('analytics');
 
         $service = app()->make(Google_Service_Analytics::class);
 
