@@ -27,7 +27,11 @@ class GoogleServicesTest extends TestCase
 
             Key::updateOrCreate(
                 ['slug' => config('google-api.my-business.access-token-slug')],
-                ['value' => env('GOOGLE_MYBUSINESS_ACCESS_TOKEN_VALUE')]
+                [
+                    'value' => env('GOOGLE_MYBUSINESS_ACCESS_TOKEN_VALUE'),
+                    'creator_id' => randomOrCreate(app('user')),
+                    'updater_id' => randomOrCreate(app('user')),
+                ]
             );
         }
     }
@@ -39,7 +43,11 @@ class GoogleServicesTest extends TestCase
         // for creating the client.
         Key::firstOrCreate(
             ['slug' => config('google-api.my-business.access-token-slug')],
-            ['value' => config('google-api.test.mock-json-token')]
+            [
+                'value' => config('google-api.test.mock-json-token'),
+                'creator_id' => randomOrCreate(app('user')),
+                'updater_id' => randomOrCreate(app('user')),
+            ]
         );
 
         $service = app()->make(Google_Service_MyBusiness::class);
@@ -54,7 +62,11 @@ class GoogleServicesTest extends TestCase
         // for creating the client.
         Key::firstOrCreate(
             ['slug' => config('google-api.youtube.access-token-slug')],
-            ['value' => config('google-api.test.mock-json-token')]
+            [
+                'value' => config('google-api.test.mock-json-token'),
+                'creator_id' => randomOrCreate(app('user')),
+                'updater_id' => randomOrCreate(app('user')),
+            ]
         );
 
         $service = app()->make(Google_Service_YouTube::class);
