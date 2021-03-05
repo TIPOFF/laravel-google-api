@@ -34,4 +34,8 @@ return [
         ],
         'access-token-slug' => env('YOUTUBE_ACCESS_TOKEN_SLUG', env('GOOGLE_ACCESS_TOKEN_SLUG', 'youtube-token')),
     ],
+
+    'test' => [
+        'mock-json-token' => '{"access_token":"mock-access-token","expires_in":3599,"scope":"https:\/\/www.googleapis.com\/auth\/business.manage","token_type":"Bearer","created":'.time().',"refresh_token":"mock-refresh-token"}',
+    ]
 ];

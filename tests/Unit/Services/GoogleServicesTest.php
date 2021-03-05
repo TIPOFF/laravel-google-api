@@ -30,6 +30,14 @@ class GoogleServicesTest extends TestCase
 
     /** @test */
     public function it_builds_the_Google_My_Business_service() {
+        // If we don't have an actual key for our testing in the .env.test
+        // file, create a mock one here that the Google client will accept
+        // for creating the client.
+        Key::firstOrCreate(
+            ['slug' => config('google-api.my-business.access-token-slug')],
+            ['value' => config('google-api.test.mock-json-token')]
+        );
+
         $service = app()->make(Google_Service_MyBusiness::class);
 
         $this->assertInstanceOf(Google_Service_MyBusiness::class, $service);
