@@ -4,6 +4,7 @@ namespace Tipoff\GoogleApi\Tests\Unit\Services;
 
 use Google_Service_MyBusiness;
 use Google_Service_YouTube;
+use Google_Service_YouTubeAnalytics;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tipoff\GoogleApi\Models\Key;
 use Tipoff\GoogleApi\Tests\TestCase;
@@ -74,5 +75,25 @@ class GoogleServicesTest extends TestCase
         $service = app()->make(Google_Service_YouTube::class);
 
         $this->assertInstanceOf(Google_Service_YouTube::class, $service);
+    }
+
+    /** @test */
+    public function it_builds_the_Google_YouTubeAnalytics_service()
+    {
+        // If we don't have an actual key for our testing in the .env.test
+        // file, create a mock one here that the Google client will accept
+        // for creating the client.
+        Key::firstOrCreate(
+            ['slug' => config('google-api.youtube-analytics.access-token-slug')],
+            [
+                'value' => config('google-api.test.mock-json-token'),
+                'creator_id' => randomOrCreate(app('user')),
+                'updater_id' => randomOrCreate(app('user')),
+            ]
+        );
+
+        $service = app()->make(Google_Service_YouTubeAnalytics::class);
+
+        $this->assertInstanceOf(Google_Service_YouTubeAnalytics::class, $service);
     }
 }
