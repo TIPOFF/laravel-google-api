@@ -27,6 +27,8 @@ GOOGLE_PROJECT_ID=
 GOOGLE_CLIENT_SECRET=
 GOOGLE_REDIRECT_URIS=
 GOOGLE_JAVASCRIPT_ORIGINS=
+
+GOOGLE_API_KEY=
 ```
 
 You can use the `|` character to separate multiple strings in the `GOOGLE_REDIRECT_URIS` and `GOOGLE_JAVASCRIPT_ORIGINS` settings.
@@ -50,7 +52,23 @@ $gmblocations = $gmbClient->accounts_locations
     ->get('accounts/{account-id}/locations')
     ->toSimpleObject()
     ->locations;
+
+// Instantiate other services similarly:
+// Google Analytics
+$client = app()->make(\Google_Service_Analytics::class);
+
+// YouTube Data Service
+$client = app()->make(\Google_Service_YouTube::class);
+
+// YouTube Analytics Service
+$client = app()->make(\Google_Service_YouTubeAnalytics::class);
+
+// Google Places API
+$client = app()->make(\SKAgarwal\GoogleApi\PlacesApi::class);
 ```
+
+**Note:** The Google Places service makes use of a third-party wrapper to access the Places API.
+Documentation on available methods for it is available [here](https://github.com/SachinAgarwal1337/google-places-api/#available-methods).
 
 ## Testing
 

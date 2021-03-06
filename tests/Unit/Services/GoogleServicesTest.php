@@ -7,6 +7,7 @@ use Google_Service_MyBusiness;
 use Google_Service_YouTube;
 use Google_Service_YouTubeAnalytics;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use SKAgarwal\GoogleApi\PlacesApi;
 use Tipoff\GoogleApi\Models\Key;
 use Tipoff\GoogleApi\Tests\TestCase;
 
@@ -97,5 +98,13 @@ class GoogleServicesTest extends TestCase
         $service = app()->make(Google_Service_Analytics::class);
 
         $this->assertInstanceOf(Google_Service_Analytics::class, $service);
+    }
+
+    /** @test */
+    public function it_builds_the_Google_Places_service()
+    {
+        $service = app()->make(PlacesApi::class);
+
+        $this->assertInstanceOf(PlacesApi::class, $service);
     }
 }
