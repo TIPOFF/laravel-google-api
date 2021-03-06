@@ -106,7 +106,5 @@ class GoogleServicesTest extends TestCase
         $service = app()->make(PlacesApi::class);
 
         $this->assertInstanceOf(PlacesApi::class, $service);
-
-        dd($service->placeAutocomplete('hyrum, ut'));
     }
 }
