@@ -29,3 +29,8 @@ All notable changes to `laravel-google-api` will be documented in this file.
 - google analytics api
 - youtube analytics api
 - youtube data api
+
+## 1.3.1 - 2021-03-06
+
+- google places api
+- places autocomplete in google paps javascript api
