@@ -67,7 +67,7 @@ class GoogleApiServiceProvider extends TipoffServiceProvider
             return new Google_Service_Analytics($client);
         });
 
-        $this->app->bind(PlacesApi::class, function() {
+        $this->app->bind(PlacesApi::class, function () {
             return new PlacesApi(
                 config('google-api.places.key'),
                 config('google-api.places.verify_ssl'),
