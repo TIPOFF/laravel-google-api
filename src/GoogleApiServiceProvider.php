@@ -10,6 +10,7 @@ use Google_Service_Analytics;
 use Google_Service_MyBusiness;
 use Google_Service_YouTube;
 use Google_Service_YouTubeAnalytics;
+use SKAgarwal\GoogleApi\PlacesApi;
 use Tipoff\GoogleApi\Models\GmbAccount;
 use Tipoff\GoogleApi\Models\Key;
 use Tipoff\GoogleApi\Policies\GmbAccountPolicy;
@@ -64,6 +65,14 @@ class GoogleApiServiceProvider extends TipoffServiceProvider
             $client = $this->configureClient(app()->make(Google_Client::class), 'analytics');
 
             return new Google_Service_Analytics($client);
+        });
+
+        $this->app->bind(PlacesApi::class, function() {
+            return new PlacesApi(
+                config('google-api.places.key'),
+                config('google-api.places.verify_ssl'),
+                config('google-api.places.headers')
+            );
         });
     }
 

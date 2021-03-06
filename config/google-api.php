@@ -69,8 +69,8 @@ return [
         'access-token-slug' => env('ANALYTICS_ACCESS_TOKEN_SLUG', env('GOOGLE_ACCESS_TOKEN_SLUG', 'analytics-token')),
     ],
 
-    'google-places' => [
-        'key' => env('GOOGLE_PLACES_API_KEY', env('GOOGLE_API_KEY', '')),
+    'places' => [
+        'key' => env('GOOGLE_PLACES_API_KEY', env('GOOGLE_API_KEY', null)),
         'verify_ssl' => env('GOOGLE_PLACES_VERIFY_SSL', true),
         'headers' => env('GOOGLE_PLACES_HEADERS', []),
     ],
