@@ -35,6 +35,9 @@ class GoogleApiServiceProvider extends TipoffServiceProvider
             ->hasConfigFile('google-api');
     }
     
+    /**
+     * @psalm-suppress InvalidArgument
+     */
     public function register()
     {
         parent::register();
