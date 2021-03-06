@@ -27,6 +27,8 @@ GOOGLE_PROJECT_ID=
 GOOGLE_CLIENT_SECRET=
 GOOGLE_REDIRECT_URIS=
 GOOGLE_JAVASCRIPT_ORIGINS=
+
+GOOGLE_API_KEY=
 ```
 
 You can use the `|` character to separate multiple strings in the `GOOGLE_REDIRECT_URIS` and `GOOGLE_JAVASCRIPT_ORIGINS` settings.
