@@ -34,3 +34,8 @@ All notable changes to `laravel-google-api` will be documented in this file.
 
 - google places api
 - places autocomplete in google paps javascript api
+
+## 1.3.2 - 2021-03-12
+
+- migrate permissions
+- grant permissions to roles
