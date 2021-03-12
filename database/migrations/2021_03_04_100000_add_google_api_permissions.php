@@ -12,7 +12,7 @@ class AddGoogleApiPermissions extends BasePermissionsMigration
             'view gmb accounts' => ['Owner','Staff'],
             'create gmb accounts' => ['Owner'],
             'update gmb accounts' => ['Owner'],
-            'view keys' => ['Owner','Staff'],
+            'view keys' => [],
         ];
 
         $this->createPermissions($permissions);
