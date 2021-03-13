@@ -19,8 +19,8 @@
         "php": "^7.4|^8.0",
         "google/apiclient": "^2.7",
         "skagarwal/google-places-api": "^1.7",
-        "tipoff/authorization": "^2.5.2",
-        "tipoff/support": "^1.6.0"
+        "tipoff/authorization": "^2.5.5",
+        "tipoff/support": "^1.6.3"
     },
     "require-dev": {
         "tipoff/test-support": "^1.2.0"
