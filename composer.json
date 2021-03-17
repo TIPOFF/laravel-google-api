@@ -20,10 +20,10 @@
         "google/apiclient": "^2.7",
         "skagarwal/google-places-api": "^1.7",
         "tipoff/authorization": "^2.5.5",
-        "tipoff/support": "^1.6.3"
+        "tipoff/support": "^1.7.2"
     },
     "require-dev": {
-        "tipoff/test-support": "^1.2.0"
+        "tipoff/test-support": "^1.3.0"
     },
     "autoload": {
         "psr-4": {
