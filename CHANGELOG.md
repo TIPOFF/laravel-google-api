@@ -39,3 +39,7 @@ All notable changes to `laravel-google-api` will be documented in this file.
 
 - migrate permissions
 - grant permissions to roles
+
+## 1.3.3 - 2021-03-19
+
+- improved nova resources
