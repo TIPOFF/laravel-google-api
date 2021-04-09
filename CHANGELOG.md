@@ -43,3 +43,7 @@ All notable changes to `laravel-google-api` will be documented in this file.
 ## 1.3.3 - 2021-03-19
 
 - improved nova resources
+
+## 2.0.0 - 2021-04-09
+
+- framework for routing
