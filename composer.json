@@ -21,8 +21,8 @@
         "skagarwal/google-places-api": "^1.7",
         "spatie/data-transfer-object": "^2.8",
         "spatie/valuestore": "^1.2",
-        "tipoff/authorization": "^2.8.0",
-        "tipoff/support": "^2.0.0"
+        "tipoff/authorization": "^2.8.6",
+        "tipoff/support": "^2.1.4"
     },
     "require-dev": {
         "tipoff/test-support": "^2.0.0"

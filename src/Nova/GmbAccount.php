@@ -17,7 +17,7 @@ class GmbAccount extends BaseResource
 
     public static $orderBy = ['id' => 'asc'];
 
-    public static $title = 'name';
+    public static $title = 'account_number';
 
     public static $search = [
         'account_number',
