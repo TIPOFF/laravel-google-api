@@ -46,10 +46,10 @@ class GoogleOauth
     /**
      * Get access token.
      *
-     * @param null $identifier
+     * @param string|null $identifier
      * @return AccessToken
      */
-    public function accessToken($identifier = null): AccessToken
+    public function accessToken(?string $identifier = null): AccessToken
     {
         // Set identifier on the fly.
         if (! is_null($identifier)) {
@@ -91,10 +91,10 @@ class GoogleOauth
     }
 
     /**
-     * @param null $refreshToken
+     * @param string|null $refreshToken
      * @return AccessToken
      */
-    public function refreshAccessToken($refreshToken = null): AccessToken
+    public function refreshAccessToken(?string $refreshToken = null): AccessToken
     {
         if (is_null($refreshToken)) {
             $refreshToken = $this->accessToken()->getRefreshToken();
