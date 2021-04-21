@@ -13,7 +13,7 @@ class KeyEloquentDriver implements GoogleOauthDriver
 
         $accessToken = optional($model)->value;
 
-        if (!$accessToken) {
+        if (! $accessToken) {
             throw new \Exception('Cannot not read access token with identifier ' . $identifier);
         }
 
@@ -30,7 +30,7 @@ class KeyEloquentDriver implements GoogleOauthDriver
         Key::updateOrCreate(
             ['slug' => $identifier],
             [
-                'value'      => $accessToken,
+                'value' => $accessToken,
                 'creator_id' => Auth::id(),
                 'updater_id' => Auth::id(),
             ]

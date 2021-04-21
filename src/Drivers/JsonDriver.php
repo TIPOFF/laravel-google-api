@@ -12,7 +12,7 @@ class JsonDriver implements GoogleOauthDriver
     {
         $accessToken = $this->valueStore($identifier)->all();
 
-        if (!count($accessToken)) {
+        if (! count($accessToken)) {
             throw new \Exception('Cannot not read access token with identifier ' . $identifier);
         }
 

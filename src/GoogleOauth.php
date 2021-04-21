@@ -52,7 +52,7 @@ class GoogleOauth
     public function accessToken($identifier = null): AccessToken
     {
         // Set identifier on the fly.
-        if (!is_null($identifier)) {
+        if (! is_null($identifier)) {
             $this->setIdentifier($identifier);
         }
 

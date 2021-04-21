@@ -22,7 +22,7 @@ class GoogleApiServiceProvider extends TipoffServiceProvider
     {
         $package
             ->hasPolicies([
-                Key::class        => KeyPolicy::class,
+                Key::class => KeyPolicy::class,
                 GmbAccount::class => GmbAccountPolicy::class,
             ])
             ->hasNovaResources([
@@ -54,7 +54,7 @@ class GoogleApiServiceProvider extends TipoffServiceProvider
     {
         Route::macro('googleOauth', function ($prefix = 'google-oauth', $middleware = []) {
             Route::group([
-                'prefix'     => $prefix,
+                'prefix' => $prefix,
                 'middleware' => $middleware,
             ], function () {
                 Route::get('oauth', [GoogleOauthController::class, 'redirect'])->name('google-oauth.connect');
