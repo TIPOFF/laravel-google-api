@@ -5,10 +5,8 @@ declare(strict_types=1);
 namespace Tipoff\GoogleApi;
 
 use Google_Client;
-use Illuminate\Support\Facades\Route;
 use Tipoff\GoogleApi\Contracts\GoogleOauthDriver;
 use Tipoff\GoogleApi\Drivers\JsonDriver;
-use Tipoff\GoogleApi\Http\Controllers\GoogleOauthController;
 use Tipoff\GoogleApi\Models\GmbAccount;
 use Tipoff\GoogleApi\Models\Key;
 use Tipoff\GoogleApi\Policies\GmbAccountPolicy;
@@ -29,38 +27,24 @@ class GoogleApiServiceProvider extends TipoffServiceProvider
                 \Tipoff\GoogleApi\Nova\Key::class,
                 \Tipoff\GoogleApi\Nova\GmbAccount::class,
             ])
+            ->hasWebRoute('web')
             ->name('google-api')
             ->hasConfigFile('google-api');
-
-        $this->app->bind('google-oauth', function ($app) {
-            return new GoogleOauth(new Google_Client, $app['config']['google-api']);
-        });
     }
 
     public function packageRegistered()
     {
+        parent::packageRegistered();
+
         $this->app->singleton(GoogleOauthDriver::class, JsonDriver::class);
     }
 
     public function bootingPackage()
     {
-        $this->setupGoogleOauthRoutes();
-    }
+        parent::bootingPackage();
 
-    /**
-     * Set up routes for Google Oauth process.
-     */
-    private function setupGoogleOauthRoutes()
-    {
-        Route::macro('googleOauth', function ($prefix = 'google-oauth', $middleware = []) {
-            Route::group([
-                'prefix' => $prefix,
-                'middleware' => $middleware,
-            ], function () {
-                Route::get('oauth', [GoogleOauthController::class, 'redirect'])->name('google-oauth.connect');
-                Route::get('callback', [GoogleOauthController::class, 'handleCallback'])->name('google-oauth.callback');
-                Route::get('logout', [GoogleOauthController::class, 'logout'])->name('google-oauth.logout');
-            });
+        $this->app->bind('google-oauth', function ($app) {
+            return new GoogleOauth(new Google_Client, $app['config']['google-api']);
         });
     }
 }

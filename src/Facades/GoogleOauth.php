@@ -7,11 +7,11 @@ use Tipoff\GoogleApi\DataTransferObjects\AccessToken;
 /**
  * @see \Tipoff\GoogleApi\GoogleAuth
  *
- * @method static $this setIdentifier(string $identifier)
- * @method static $this setScopes(array $scopes)
- * @method static AccessToken accessToken($identifier = null)
+ * @method static \Tipoff\GoogleApi\GoogleOauth setIdentifier(string $identifier)
+ * @method static \Tipoff\GoogleApi\GoogleOauth setScopes(array $scopes)
+ * @method static AccessToken accessToken(?string $identifier = null)
  * @method static AccessToken makeAccessToken()
- * @method static AccessToken refreshAccessToken($refreshToken = null)
+ * @method static AccessToken refreshAccessToken(?string $refreshToken = null)
  * @method static AccessToken readAccessToken()
  * @method static void flushAccessToken()
  * @method static RedirectResponse redirect(?string $identifier = null, ?string $homeUrl = '/')
