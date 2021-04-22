@@ -19,6 +19,8 @@
         "php": "^7.4|^8.0",
         "google/apiclient": "^2.7",
         "skagarwal/google-places-api": "^1.7",
+        "spatie/data-transfer-object": "^2.8",
+        "spatie/valuestore": "^1.2",
         "tipoff/authorization": "^2.8.6",
         "tipoff/support": "^2.1.4"
     },
@@ -52,7 +54,10 @@
         "laravel": {
             "providers": [
                 "Tipoff\\GoogleApi\\GoogleApiServiceProvider"
-            ]
+            ],
+            "aliases": {
+                "GoogleOauth": "Tipoff\\GoogleApi\\Facades\\GoogleOauth"
+            }
         }
     },
     "repositories": [

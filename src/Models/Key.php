@@ -15,7 +15,9 @@ class Key extends BaseModel
     use HasUpdater;
     use HasPackageFactory;
 
-    protected $casts = [];
+    protected $casts = [
+        'value' => 'array',
+    ];
 
     public function gmb_accounts()
     {
