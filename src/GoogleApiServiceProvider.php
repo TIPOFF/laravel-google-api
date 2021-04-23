@@ -46,5 +46,9 @@ class GoogleApiServiceProvider extends TipoffServiceProvider
         $this->app->bind('google-oauth', function ($app) {
             return new GoogleOauth(new Google_Client, $app['config']['google-api']);
         });
+
+        $this->app->bind(GoogleServices::class, function () {
+            return new GoogleServices(new Google_Client);
+        });
     }
 }
