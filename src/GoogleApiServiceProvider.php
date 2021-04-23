@@ -20,7 +20,7 @@ class GoogleApiServiceProvider extends TipoffServiceProvider
     {
         $package
             ->hasPolicies([
-                Key::class => KeyPolicy::class,
+                Key::class        => KeyPolicy::class,
                 GmbAccount::class => GmbAccountPolicy::class,
             ])
             ->hasNovaResources([
@@ -45,6 +45,10 @@ class GoogleApiServiceProvider extends TipoffServiceProvider
 
         $this->app->bind('google-oauth', function ($app) {
             return new GoogleOauth(new Google_Client, $app['config']['google-api']);
+        });
+
+        $this->app->bind(GoogleServices::class, function () {
+            return new GoogleServices(new Google_Client);
         });
     }
 }

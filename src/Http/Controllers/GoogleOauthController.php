@@ -3,12 +3,15 @@
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use Tipoff\GoogleApi\Facades\GoogleOauth;
+use Tipoff\GoogleApi\GoogleServices;
 
 class GoogleOauthController extends Controller
 {
     public function redirect(Request $request)
     {
-        return GoogleOauth::setScopes($request->get('scopes'))->redirect(
+        $scopes = $request->get('scopes', app(GoogleServices::class)->scopes());
+
+        return GoogleOauth::setScopes($scopes)->redirect(
             $request->get('identifier'),
             $request->get('home_url')
         );
