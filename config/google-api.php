@@ -15,8 +15,8 @@ return [
         'search-console'    => [
             'status' => Tipoff\GoogleApi\GoogleServiceStatus::ENABLED,
             'scopes' => [
-                Google_Service_SearchConsole::WEBMASTERS_READONLY,
-                //Google_Service_SearchConsole::WEBMASTERS // Read and write
+                'https://www.googleapis.com/auth/webmasters',
+                'https://www.googleapis.com/auth/webmasters.readonly'
             ]
         ],
         'my-business'       => [
