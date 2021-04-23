@@ -47,3 +47,9 @@ All notable changes to `laravel-google-api` will be documented in this file.
 ## 2.0.0 - 2021-04-09
 
 - framework for routing
+
+## 2.1.0 - 2021-04-23
+
+- config options
+- google services
+- key or json option
