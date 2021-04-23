@@ -28,12 +28,12 @@ class GoogleServicesTest extends TestCase
         parent::setUp();
 
         $this->fakeToken = [
-            'access_token'  => 'mock-access-token',
-            'expires_in'    => time(),
-            'scope'         => 'https://www.googleapis.com/auth/business.manage',
-            'token_type'    => 'Bearer',
-            'created'       => time(),
-            'refresh_token' => 'mock-refresh-token'
+            'access_token' => 'mock-access-token',
+            'expires_in' => time(),
+            'scope' => 'https://www.googleapis.com/auth/business.manage',
+            'token_type' => 'Bearer',
+            'created' => time(),
+            'refresh_token' => 'mock-refresh-token',
         ];
 
         $this->googleServices = app(GoogleServices::class);
@@ -61,7 +61,7 @@ class GoogleServicesTest extends TestCase
         Key::firstOrCreate(
             ['slug' => $serviceName],
             [
-                'value'      => $this->fakeToken,
+                'value' => $this->fakeToken,
                 'creator_id' => randomOrCreate(app('user')),
                 'updater_id' => randomOrCreate(app('user')),
             ]
