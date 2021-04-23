@@ -29,7 +29,7 @@ class GoogleServicesTest extends TestCase
 
         $this->fakeToken = [
             'access_token' => 'mock-access-token',
-            'expires_in' => time(),
+            'expires_in' => now()->addDay()->timestamp,
             'scope' => 'https://www.googleapis.com/auth/business.manage',
             'token_type' => 'Bearer',
             'created' => time(),
