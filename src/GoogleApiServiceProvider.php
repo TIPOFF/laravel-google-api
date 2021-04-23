@@ -20,7 +20,7 @@ class GoogleApiServiceProvider extends TipoffServiceProvider
     {
         $package
             ->hasPolicies([
-                Key::class        => KeyPolicy::class,
+                Key::class => KeyPolicy::class,
                 GmbAccount::class => GmbAccountPolicy::class,
             ])
             ->hasNovaResources([
