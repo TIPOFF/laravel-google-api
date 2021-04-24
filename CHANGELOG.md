@@ -53,3 +53,7 @@ All notable changes to `laravel-google-api` will be documented in this file.
 - config options
 - google services
 - key or json option
+
+## 2.1.1 - 2021-04-24
+
+- wrapper for google search console
