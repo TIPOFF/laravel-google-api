@@ -3,10 +3,11 @@
 use Google_Client;
 use Google_Service_Analytics;
 use Google_Service_MyBusiness;
-use Google_Service_SearchConsole;
 use Google_Service_YouTube;
 use Google_Service_YouTubeAnalytics;
 use Illuminate\Support\Collection;
+use SchulzeFelix\SearchConsole\SearchConsole;
+use SchulzeFelix\SearchConsole\SearchConsoleClient;
 use SKAgarwal\GoogleApi\PlacesApi;
 use Tipoff\GoogleApi\DataTransferObjects\AccessToken;
 
@@ -61,11 +62,12 @@ class GoogleServices
             ->all();
     }
 
-    public function searchConsole(): Google_Service_SearchConsole
+    public function searchConsole(): SearchConsole
     {
         $this->ensureServiceEnabled('search-console');
 
-        return new Google_Service_SearchConsole($this->googleClient);
+        return (new SearchConsole(app(SearchConsoleClient::class)))
+            ->setAccessToken($this->googleClient->getAccessToken());
     }
 
     public function myBusiness(): Google_Service_MyBusiness

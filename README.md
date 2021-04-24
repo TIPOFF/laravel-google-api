@@ -58,31 +58,25 @@ The models also have [Laravel Nova resources](https://nova.laravel.com/docs/3.0/
 ## Usage
 
 ```
-// Instantiate the Google My Business Client.
-$gmbClient = app()->make(\Google_Service_MyBusiness::class);
+// Get access token.
+$accessToken = GoogleOauth::accessToken('search-console');
 
-// Use the client to act on the API.
-$gmblocations = $gmbClient->accounts_locations
-    ->get('accounts/{account-id}/locations')
-    ->toSimpleObject()
-    ->locations;
+// Set access token.
+$googleServices = app(GoogleServices::class)->setAccessToken($accessToken);
 
-// Instantiate other services similarly:
-// Google Analytics
-$client = app()->make(\Google_Service_Analytics::class);
-
-// YouTube Data Service
-$client = app()->make(\Google_Service_YouTube::class);
-
-// YouTube Analytics Service
-$client = app()->make(\Google_Service_YouTubeAnalytics::class);
-
-// Google Places API
-$client = app()->make(\SKAgarwal\GoogleApi\PlacesApi::class);
+// Access services.
+$searchConsole = $googleServices->searchConsole();
+$myBusiness = $googleServices->myBusiness();
+$youtube = $googleServices->youtube();
+$youtubeAnalytics = $googleServices->youtubeAnalytics();
+$analytics = $googleServices->analytics();
+$place = $googleServices->places();
 ```
 
-**Note:** The Google Places service makes use of a third-party wrapper to access the Places API.
+**Note:** 
+- The Google Places service makes use of a third-party wrapper to access the Places API.
 Documentation on available methods for it is available [here](https://github.com/SachinAgarwal1337/google-places-api/#available-methods).
+- The Google Search Console service makes use of a third-party wrapper to access the Laravel Search Console. Documentation on available methods for it is available [here](https://github.com/schulzefelix/laravel-search-console).
 
 ## Testing
 

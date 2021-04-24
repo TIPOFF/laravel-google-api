@@ -7,6 +7,7 @@ use Google_Service_MyBusiness;
 use Google_Service_YouTube;
 use Google_Service_YouTubeAnalytics;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use SchulzeFelix\SearchConsole\SearchConsole;
 use SKAgarwal\GoogleApi\PlacesApi;
 use Tipoff\GoogleApi\Drivers\KeyEloquentDriver;
 use Tipoff\GoogleApi\Facades\GoogleOauth;
@@ -77,7 +78,7 @@ class GoogleServicesTest extends TestCase
 
         $service = $this->googleServices->setAccessToken($accessToken)->searchConsole();
 
-        $this->assertInstanceOf(\Google_Service_SearchConsole::class, $service);
+        $this->assertInstanceOf(SearchConsole::class, $service);
     }
 
     /** @test */
