@@ -19,6 +19,7 @@ class GoogleOauth
         $this->googleClient->setRedirectUri($config['redirect_uri']);
         $this->googleClient->setState($config['state']);
         $this->googleClient->setAccessType('offline');
+        $this->googleClient->setApprovalPrompt('force');
     }
 
     /**
