@@ -20,7 +20,7 @@
         "google/apiclient": "^2.7",
         "schulzefelix/laravel-search-console": "^1.7.1",
         "skagarwal/google-places-api": "^1.7",
-        "spatie/data-transfer-object": "^3.1",
+        "spatie/data-transfer-object": "^2.8",
         "spatie/valuestore": "^1.2.5",
         "tipoff/authorization": "^2.8.6",
         "tipoff/support": "^2.1.5"
