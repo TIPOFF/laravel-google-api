@@ -9,7 +9,6 @@ use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Http\Requests\NovaRequest;
 use Laravel\Nova\Panel;
-use Tipoff\GoogleApi\Nova\Actions\CreateGMBAccount;
 use Tipoff\Support\Nova\BaseResource;
 
 class GmbAccount extends BaseResource
@@ -25,10 +24,6 @@ class GmbAccount extends BaseResource
     ];
 
     public static $group = 'Z - Admin';
-
-    protected array $actionClassList = [
-        CreateGMBAccount::class
-    ];
 
     public function fieldsForIndex(NovaRequest $request)
     {
