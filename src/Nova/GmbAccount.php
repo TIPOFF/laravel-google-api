@@ -27,7 +27,7 @@ class GmbAccount extends BaseResource
     public static $group = 'Z - Admin';
 
     protected array $actionClassList = [
-        CreateGMBAccount::class
+        CreateGMBAccount::class,
     ];
 
     public function fieldsForIndex(NovaRequest $request)
