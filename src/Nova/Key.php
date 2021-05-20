@@ -29,14 +29,14 @@ class Key extends BaseResource
     {
         return array_filter([
             ID::make()->sortable(),
-            Text::make('Name')->sortable(),
+            Text::make('Slug')->sortable(),
         ]);
     }
 
     public function fields(Request $request)
     {
         return array_filter([
-            Text::make('Name')->required(),
+            Text::make('Slug'),
 
             new Panel('Data Fields', $this->dataFields()),
         ]);
